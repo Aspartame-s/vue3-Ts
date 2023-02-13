@@ -18,4 +18,13 @@ function getLength(input: number | string): number {
     }
 }
 
+// typeof 关键字
+function getLength2(input: number | string): number {
+    if(typeof input === 'string') {
+        return input.length
+    }else {
+        return input.toString().length
+    }
+}
+
 //type guard
