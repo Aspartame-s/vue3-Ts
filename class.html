@@ -1,16 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    
+
 </body>
 <script>
-    class User{}
-    console.dir(User)
+    // class User {
+    //     static host = 'www.baidu.com' //static 为类添加方法可供所有对象使用
+    //     api(url) {
+    //         return User.host + url
+    //     }
+    // }
+    // let hd = new User()
+    // console.dir(User) //如果有static 属性只能通过 User 类直接访问
+    // console.dir(hd) // 如果属性前没有static 这个属性只能通过new实例出来的对象访问 实例化对象不能直接访问类的属性 可以通过constructor访问
+    // function User(){}
+    // User.prototype.show = function() {
+    //     console.log('jth')
+    // }
+    // function Admin() {}
+    // Admin.prototype = Object.create(User.prototype)
+    // // console.dir(Admin)
+    // let jth = new Admin()
+    // // jth.show()
+    // console.dir(jth)
+     
+    //super()就是执行父类的constructor
+
+    // let cjh1 = {
+    //     show() {
+    //         console.log('cjh1')
+    //     }
+    // }
+
+    // let cjh2 = {
+    //     __proto__: cjh1,
+    //     show() {
+    //         console.log('cjh2')
+    //     }
+    // }
+
+    // console.dir(cjh2)
+    // cjh2.__proto__.show()
+
+    class User {
+        constructor(name) {
+            this.name = name
+        }
+        show() {
+            console.log(this.name + 'user')
+        }
+    }
+
+    class Admin extends User {
+        
+        show2() {
+           console.log(this.name + 'admin')
+        }
+    }
+
+    let cjh = new Admin('成佳辉')
+    cjh.show()
+    cjh.show2()
+    console.dir(cjh)
 </script>
+
 </html>
