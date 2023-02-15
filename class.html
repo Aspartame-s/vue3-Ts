@@ -12,6 +12,35 @@
 
 </body>
 <script>
+    //子类继承父类后 构造函数中要调用super super会让腹类的构造函数执行一次
+    //既然子类继承父类，那子类的构造函数优先级一定比父类要高，如果在super之前
+    //调用了this 可能造成如下情况 虽然控制台会报错
+    //但可以分析一下，按照执行代码从上到下的顺序 先执行 this.name = 'jth'
+    //此时 this.name 已经变成了 'child'，接着执行super super是执行父类的构造函数
+    //又将 this.name 变成了 'father' 但子类原本是想将this.name 赋值成 'child'
+    //优先级应该是在父类的上面，所以 应该先 super 再执行this
+
+    class Father {
+        constructor(name) {
+            this.name = name
+        }
+
+    }
+
+    class Child extends Father {
+        constructor(name) {
+            super(name)
+            // this.name = name
+        }
+        show() {
+            console.log(this.name)
+        }
+    }
+
+    let chi1 = new Child('xiaohao1')
+    chi1.show()
+    console.dir(Child)
+
     // class User {
     //     static host = 'www.baidu.com' //static 为类添加方法可供所有对象使用
     //     api(url) {
@@ -31,7 +60,7 @@
     // let jth = new Admin()
     // // jth.show()
     // console.dir(jth)
-     
+
     //super()就是执行父类的constructor
 
     // let cjh1 = {
@@ -50,26 +79,44 @@
     // console.dir(cjh2)
     // cjh2.__proto__.show()
 
-    class User {
-        constructor(name) {
-            this.name = name
-        }
-        show() {
-            console.log(this.name + 'user')
-        }
-    }
+    // class User {
+    //     constructor(name) {
+    //         this.name = name
+    //     }
+    //     show() {
+    //         console.log(this.name + 'user')
+    //     }
+    // }
 
-    class Admin extends User {
-        
-        show2() {
-           console.log(this.name + 'admin')
-        }
-    }
+    // class Admin extends User {
 
-    let cjh = new Admin('成佳辉')
-    cjh.show()
-    cjh.show2()
-    console.dir(cjh)
+    //     show2() {
+    //        console.log(this.name + 'admin')
+    //     }
+    // }
+
+    // let cjh = new Admin('成佳辉')
+    // cjh.show()
+    // cjh.show2()
+    // console.dir(cjh)
+
+    // class Animal {
+    //     move(distanceInMeters) {
+    //         console.log(`Animal moved ${distanceInMeters}m.`);
+    //     }
+    // }
+
+    // class Dog extends Animal {
+    //     bark() {
+    //         console.log('Woof! Woof!');
+    //     }
+    // }
+
+    // const dog = new Dog();
+    // dog.bark();
+    // dog.move(10);
+    // dog.bark();
+
 </script>
 
 </html>
