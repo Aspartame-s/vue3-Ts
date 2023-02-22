@@ -1,0 +1,32 @@
+<html lang="en">
+    <head>
+        <title>双向绑定demo</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <div id="app">
+            <div>双向绑定demo</div>
+            <input type="text" id="input">
+            <div>
+				<span>input:</span>
+				<span id="output"></span>
+			</div>
+        </div>
+    </body>
+    <script>
+        var obj={}
+        Object.defineProperty(obj,'input',{
+            get:function(){
+                return obj.input
+            },
+            set:function(value){
+                console.log(value)
+                document.getElementById('input').value = value
+                document.getElementById('output').innerHTML = value
+            }
+        })
+        document.addEventListener('keyup',function(e){
+            obj.input = e.target.value
+        })
+    </script>
+</html>
