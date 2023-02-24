@@ -127,3 +127,5 @@ let kp2: keyPair<string, number> = {key: 'string', value: 1}
 // const sss1 = add({length: 10})
 //传入的参数不是一个具体的类型但都具有length属性 可以是 string | 数组 | obj
 
+//3.泛型还可以帮我们补货传入参数的类型，以确保传入参数和返回值类型的一致
+
