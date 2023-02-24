@@ -1,12 +1,12 @@
 <html lang="en">
 
 <head>
-    <title>双向绑定demo</title>
-    <meta charset="UTF-8">
+  <title>双向绑定demo</title>
+  <meta charset="UTF-8">
 </head>
 
 <body>
-    <!-- <div id="app">
+  <!-- <div id="app">
         <div>双向绑定demo</div>
         <input type="text" id="input">
         <div>
@@ -14,146 +14,146 @@
             <span id="output"></span>
         </div>
     </div> -->
-    <div id="button" style="width: 100px; height: 100px; background-color: pink;">按钮</div>
+  <div id="button" style="width: 100px; height: 100px; background-color: pink;">按钮</div>
 </body>
 <script>
-    // var obj = {}
-    // Object.defineProperty(obj, 'input', {
-    //     get: function () {
-    //         return obj.input
-    //     },
-    //     set: function (value) {
-    //         console.log(value)
-    //         document.getElementById('input').value = value
-    //         document.getElementById('output').innerHTML = value
-    //     }
-    // })
-    // document.addEventListener('keyup', function (e) {
-    //     obj.input = e.target.value
-    // })
+  // var obj = {}
+  // Object.defineProperty(obj, 'input', {
+  //     get: function () {
+  //         return obj.input
+  //     },
+  //     set: function (value) {
+  //         console.log(value)
+  //         document.getElementById('input').value = value
+  //         document.getElementById('output').innerHTML = value
+  //     }
+  // })
+  // document.addEventListener('keyup', function (e) {
+  //     obj.input = e.target.value
+  // })
 
-    // let user = {
-    //     name: "John"
-    // };
+  // let user = {
+  //     name: "John"
+  // };
 
-    // let admin = user;
-    // user = null
-    // admin = null
-    // console.log(admin)
+  // let admin = user;
+  // user = null
+  // admin = null
+  // console.log(admin)
 
-    // 假设有21个人
-    // const TOTAL_PEOPLE = 19;
+  // 假设有21个人
+  // const TOTAL_PEOPLE = 19;
 
-    // // 初始化一个数组，包含21个数字，分别代表每个人的编号
-    // let people = Array.from({ length: TOTAL_PEOPLE }, (_, i) => i + 1);
+  // // 初始化一个数组，包含21个数字，分别代表每个人的编号
+  // let people = Array.from({ length: TOTAL_PEOPLE }, (_, i) => i + 1);
 
-    // // 记录已经被抽选的人的编号
-    // let selected = [];
+  // // 记录已经被抽选的人的编号
+  // let selected = [];
 
-    // // 循环直到所有人都被抽选完为止
-    // while (selected.length < TOTAL_PEOPLE) {
-    //     // 如果人数不是3的倍数，记录剩余的人数
-    //     const remaining = (TOTAL_PEOPLE - selected.length) % 3;
+  // // 循环直到所有人都被抽选完为止
+  // while (selected.length < TOTAL_PEOPLE) {
+  //     // 如果人数不是3的倍数，记录剩余的人数
+  //     const remaining = (TOTAL_PEOPLE - selected.length) % 3;
 
-    //     // 循环抽选三个人进行比赛，直到所有人都被抽选完
-    //     while (people.length > remaining) {
-    //         // 从people数组中随机抽选三个人的编号
-    //         const [a, b, c] = getRandomThree(people);
+  //     // 循环抽选三个人进行比赛，直到所有人都被抽选完
+  //     while (people.length > remaining) {
+  //         // 从people数组中随机抽选三个人的编号
+  //         const [a, b, c] = getRandomThree(people);
 
-    //         // 从people数组中移除被抽选的三个人
-    //         people = people.filter(num => num !== a && num !== b && num !== c);
+  //         // 从people数组中移除被抽选的三个人
+  //         people = people.filter(num => num !== a && num !== b && num !== c);
 
-    //         // 记录被抽选的三个人的编号
-    //         selected.push(a, b, c);
+  //         // 记录被抽选的三个人的编号
+  //         selected.push(a, b, c);
 
-    //         // 输出被抽选的三个人的编号
-    //         console.log(`比赛选手：${a}、${b}、${c}`);
-    //     }
+  //         // 输出被抽选的三个人的编号
+  //         console.log(`比赛选手：${a}、${b}、${c}`);
+  //     }
 
-    //     // 如果人数不是3的倍数，将剩余的人放入people数组头部，优先抽选
-    //     if (remaining > 0) {
-    //         people.unshift(...selected.splice(-remaining));
-    //         console.log(people)
-    //         return
-    //     }
-    // }
+  //     // 如果人数不是3的倍数，将剩余的人放入people数组头部，优先抽选
+  //     if (remaining > 0) {
+  //         people.unshift(...selected.splice(-remaining));
+  //         console.log(people)
+  //         return
+  //     }
+  // }
 
-    // // 从数组中随机抽选三个元素
-    // function getRandomThree(arr) {
-    //     const copy = [...arr];
-    //     const result = [];
+  // // 从数组中随机抽选三个元素
+  // function getRandomThree(arr) {
+  //     const copy = [...arr];
+  //     const result = [];
 
-    //     for (let i = 0; i < 3; i++) {
-    //         const index = Math.floor(Math.random() * copy.length);
-    //         result.push(copy[index]);
-    //         copy.splice(index, 1);
-    //     }
-    //     console.log(result)
-    //     return result;
-    // }
+  //     for (let i = 0; i < 3; i++) {
+  //         const index = Math.floor(Math.random() * copy.length);
+  //         result.push(copy[index]);
+  //         copy.splice(index, 1);
+  //     }
+  //     console.log(result)
+  //     return result;
+  // }
 
-    // 初始化人员列表，共21人
-    // const people = [...Array(20)].map((_, i) => i);
+  // 初始化人员列表，共21人
+  // const people = [...Array(20)].map((_, i) => i);
 
-    // // 初始化已经被抽选的人员列表
-    // const selected = [];
+  // // 初始化已经被抽选的人员列表
+  // const selected = [];
 
-    // // 定义一个函数用于从人员列表中随机选取n个人
-    // function selectPeople(n) {
-    //     const remaining = people.filter(person => !selected.includes(person));
-    //     const selection = [];
-    //     for (let i = 0; i < n; i++) {
-    //         const index = Math.floor(Math.random() * remaining.length);
-    //         selection.push(remaining[index]);
-    //         selected.push(remaining[index]);
-    //         remaining.splice(index, 1);
-    //     }
-    //     return selection;
-    // }
+  // // 定义一个函数用于从人员列表中随机选取n个人
+  // function selectPeople(n) {
+  //     const remaining = people.filter(person => !selected.includes(person));
+  //     const selection = [];
+  //     for (let i = 0; i < n; i++) {
+  //         const index = Math.floor(Math.random() * remaining.length);
+  //         selection.push(remaining[index]);
+  //         selected.push(remaining[index]);
+  //         remaining.splice(index, 1);
+  //     }
+  //     return selection;
+  // }
 
-    // // 开始比赛
-    // while (selected.length < people.length) {
-    //     let numSelected = 0;
-    //     while (numSelected < 3) {
-    //         const remaining = 3 - numSelected;
-    //         const selection = selectPeople(remaining);
-    //         numSelected += selection.length;
-    //         console.log(`比赛选手：${selection.join(', ')}`);
-    //     }
-    // }
-        // 定义一个数组，用于存储所有的人名
-const allNames = ["2", "张三", "李四", "王五", "赵六", "钱七", "孙八", "周九", "吴十", "郑十一", "马十二", "陈十三", "林十四", "黄十五", "周十六", "王十七", "李十八", "赵十九", "张二十", "刘二十一"];
+  // // 开始比赛
+  // while (selected.length < people.length) {
+  //     let numSelected = 0;
+  //     while (numSelected < 3) {
+  //         const remaining = 3 - numSelected;
+  //         const selection = selectPeople(remaining);
+  //         numSelected += selection.length;
+  //         console.log(`比赛选手：${selection.join(', ')}`);
+  //     }
+  // }
+  // 定义一个数组，用于存储所有的人名
+  // const allNames = ["2", "张三", "李四", "王五", "赵六", "钱七", "孙八", "周九", "吴十", "郑十一", "马十二", "陈十三", "林十四", "黄十五", "周十六", "王十七", "李十八", "赵十九", "张二十", "刘二十一"];
 
-// 定义一个数组，用于存储已经被抽选的人名
-let selectedNames = [];
+  // // 定义一个数组，用于存储已经被抽选的人名
+  // let selectedNames = [];
 
-// 定义一个函数，用于从数组中随机挑选n个元素，并将这些元素从数组中删除
-function randomPick(arr, n) {
-  const result = [];
-  for (let i = 0; i < n; i++) {
-    const randomIndex = Math.floor(Math.random() * arr.length);
-    result.push(arr[randomIndex]);
-    arr.splice(randomIndex, 1);
-  }
-  return result;
-}
+  // // 定义一个函数，用于从数组中随机挑选n个元素，并将这些元素从数组中删除
+  // function randomPick(arr, n) {
+  //   const result = [];
+  //   for (let i = 0; i < n; i++) {
+  //     const randomIndex = Math.floor(Math.random() * arr.length);
+  //     result.push(arr[randomIndex]);
+  //     arr.splice(randomIndex, 1);
+  //   }
+  //   return result;
+  // }
 
-// 定义一个函数，用于展示被抽选的人名
-function showSelectedNames() {
-  // 从 allNames 数组中随机挑选 3 个元素
-  let names = randomPick(allNames, 3);
-  // 如果不足 3 个元素，就从 selectedNames 数组中补充
-  if (names.length < 3) {
-    names = names.concat(randomPick(selectedNames, 3 - names.length));
-  }
-  // 将这些元素添加到 selectedNames 数组中
-  selectedNames = selectedNames.concat(names);
-  // 展示被抽选的人名
-  console.log(names);
-}
+  // // 定义一个函数，用于展示被抽选的人名
+  // function showSelectedNames() {
+  //   // 从 allNames 数组中随机挑选 3 个元素
+  //   let names = randomPick(allNames, 3);
+  //   // 如果不足 3 个元素，就从 selectedNames 数组中补充
+  //   if (names.length < 3) {
+  //     names = names.concat(randomPick(selectedNames, 3 - names.length));
+  //   }
+  //   // 将这些元素添加到 selectedNames 数组中
+  //   selectedNames = selectedNames.concat(names);
+  //   // 展示被抽选的人名
+  //   console.log(names);
+  // }
 
-// 在点击按钮时调用 showSelectedNames 函数
-document.getElementById("button").addEventListener("click", showSelectedNames);
+  // // 在点击按钮时调用 showSelectedNames 函数
+  // document.getElementById("button").addEventListener("click", showSelectedNames);
 
 </script>
 

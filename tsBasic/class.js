@@ -22,7 +22,7 @@ var Test = /** @class */ (function () {
     return Test;
 }());
 var ads = new Test('hello');
-console.log(ads.name); //此时的age 为 private属性 不可在类外访问 如果为 protected也一样不能在类外访问
+// console.log(ads.age) //此时的age 为 private属性 不可在类外访问 如果为 protected也一样不能在类外访问
 // console.log(ads)
 //ts中默认类的所有属性都是 public（公有）
 var Animal = /** @class */ (function () {
@@ -30,7 +30,10 @@ var Animal = /** @class */ (function () {
         this.name = name;
     }
     Animal.prototype.show = function () {
-        console.log("my name is ".concat(this.name));
+        console.log("my name is ".concat(this.name, " sds"));
+    };
+    Animal.prototype.show2 = function () {
+        this.show();
     };
     return Animal;
 }());
@@ -41,16 +44,16 @@ var Snake = /** @class */ (function (_super) {
         _this.dep = dep;
         return _this;
     }
-    Snake.prototype.show = function () {
+    Snake.prototype.show3 = function () {
         // console.log(`my name is ${this.name} and work in ${this.dep}`) 属性“name”为私有属性，只能在类“Animal”中访问
-        _super.prototype.show.call(this);
+        _super.prototype.show2.call(this);
         //如果在类型中添加私有（private）属性，则不可以在 类 外使用，包括派生类（子类）
         //但可以在申明私有属性的类型内访问
     };
     return Snake;
 }(Animal));
 var snake = new Snake('jth', 'ali');
-snake.show();
+snake.show3();
 var Animal2 = /** @class */ (function () {
     function Animal2(name) {
         this.name = name;
@@ -76,7 +79,7 @@ var Snake2 = /** @class */ (function (_super) {
     return Snake2;
 }(Animal2));
 var snake2 = new Snake2('jth', 'ali');
-snake.show();
+snake2.show();
 //只读属性
 var User = /** @class */ (function () {
     function User(name) {

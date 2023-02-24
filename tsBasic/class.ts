@@ -15,8 +15,11 @@ class Animal {
     constructor(name) {
         this.name = name
     }
-    show() {
-        console.log(`my name is ${this.name}`)
+    private show() {
+        console.log(`my name is ${this.name} sds`)
+    }
+    show2() {
+        this.show()
     }
 }
 
@@ -26,16 +29,16 @@ class Snake extends Animal {
         super(name)
         this.dep = dep
     }
-    show() {
+    show3() {
         // console.log(`my name is ${this.name} and work in ${this.dep}`) 属性“name”为私有属性，只能在类“Animal”中访问
-        super.show()
+        super.show2()
         //如果在类型中添加私有（private）属性，则不可以在 类 外使用，包括派生类（子类）
         //但可以在申明私有属性的类型内访问
     }
 }
 
 let snake = new Snake('jth', 'ali')
-snake.show()
+snake.show3()
 
 class Animal2 {
     protected name: string;
@@ -62,7 +65,7 @@ class Snake2 extends Animal2 {
 }
 
 let snake2 = new Snake2('jth', 'ali')
-snake.show()
+snake2.show()
 
 //只读属性
 class User {
