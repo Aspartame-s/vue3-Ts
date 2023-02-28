@@ -38,7 +38,7 @@ const result5 = echo(true)
 //写法上需要 给 echo 添加类型变量 T，并用 <> 包裹，
 //这样 T 就会帮助我们捕获传入参数的类型，然后将参数和函数返回值都添加类型 T
 
-//约束泛型
+//泛型约束
 interface hasLength {
     length: number
 }
@@ -52,9 +52,10 @@ const str = echoWithLength('str')
 const obj = echoWithLength({ length: 10, width: '12' })
 const arr = echoWithLength(['1', '2', '3'])
 
-//约束泛型
-//可以给类型变量继承一个interface 约束泛型
-//interface约束泛型必须要有length
+//泛型约束
+//可以给类型变量继承一个interface 泛型约束
+//interface描述约束条件 传入参数的类型包含length属性
+//然后 使用这个接口和extends关键字实现泛型约束
 //只要传入的参数有length属性，不管是string 还是 对象 还是 数组
 //只要有length属性都可以
 //典型的 duck typing, 只要这只鸟走起来像鸭子、游泳起来像鸭子、叫起来也像鸭子，那么这只鸟就可以被称为鸭子
@@ -83,7 +84,7 @@ console.log(cla1.pop().toFixed())
 //改写
 
 class genericsClass2<T> {
-    private data = []
+    private data: Array<T> = []
     push(item: T) {
         return this.data.push(item)
     }
@@ -127,5 +128,5 @@ let kp2: keyPair<string, number> = {key: 'string', value: 1}
 // const sss1 = add({length: 10})
 //传入的参数不是一个具体的类型但都具有length属性 可以是 string | 数组 | obj
 
-//3.泛型还可以帮我们补货传入参数的类型，以确保传入参数和返回值类型的一致
+//3.泛型还可以帮我们捕获传入参数的类型，以确保传入参数和返回值类型的一致
 
